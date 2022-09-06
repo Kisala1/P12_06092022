@@ -1,0 +1,17 @@
+@use '../../styles/theme';
+
+.div {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  background-color: theme.$bg-primary-color;
+}
+.divIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+  .icon {
+    // width: 100%;
+    background-color: theme.$bg-secondary-color;
+  }
+}

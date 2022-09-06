@@ -1,0 +1,6 @@
+@use '../../../styles/theme';
+
+.div {
+  font-size: 34px;
+  color: theme.$third-color;
+}

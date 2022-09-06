@@ -1,0 +1,7 @@
+@use '../../../styles/theme';
+
+.span {
+  margin: 0 100px;
+  font-size: 1.5em;
+  color: theme.$secondary-color;
+}

@@ -1,0 +1,5 @@
+@use 'theme.scss';
+
+body {
+ font-family: theme.$font-primary;
+}

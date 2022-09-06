@@ -1,0 +1,15 @@
+@use '../../styles/theme';
+
+.divContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: theme.$bg-primary-color;
+  .divImg {
+    width: 15%;
+    .img {
+        width: 100%;
+    }
+  }
+}
