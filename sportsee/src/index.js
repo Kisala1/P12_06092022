@@ -1,13 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard/Dashboard';
-import './styles/index.scss'
+import users from './data/users.json';
+import usersActivity from './data/usersActivity.json';
+import usersAverage from './data/usersAverage.json';
+import usersPerformance from './data/usersPerformance.json';
+import './styles/index.scss';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Dashboard />
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Dashboard
+              users={users}
+              usersActivity={usersActivity}
+              usersAverage={usersAverage}
+              usersPerformance={usersPerformance}
+            />
+          }
+        />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 

@@ -17,18 +17,23 @@ export function Nav() {
   ];
 
   return (
-    <div className={styles.div}>
-      {icons.map((icon, index) =>
-        typeof icon === 'string' ? (
-          <div className={styles.divImg} key={index}>
-            <img src={icon} alt="icon" />
-          </div>
-        ) : (
-          <div className={styles.divIcon} key={index}>
-            <NavIcon icon={icon} />
-          </div>
-        )
-      )}
+    <div className={styles.divContainer}>
+      <div>
+        {icons.map((icon, index) =>
+          typeof icon === 'string' ? (
+            <div className={styles.divImg} key={index}>
+              <img src={icon} alt="icon" className={styles.img} />
+            </div>
+          ) : (
+            <div className={styles.divIcon} key={index}>
+              <NavIcon icon={icon} />
+            </div>
+          )
+        )}
+      </div>
+      <div>
+        <span className={styles.span}>Copiryght, SportSee 2020</span>
+      </div>
     </div>
   );
 }

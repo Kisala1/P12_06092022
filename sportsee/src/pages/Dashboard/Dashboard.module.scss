@@ -1,0 +1,17 @@
+.container {
+  margin: 90px;
+
+  .containerAverage {
+    background-color: #ff0000;
+    .average {
+      z-index: 1;
+    }
+  }
+
+  .containerScore {
+    background-color: #282d30;
+    .score {
+      z-index: 1;
+    }
+  }
+}
