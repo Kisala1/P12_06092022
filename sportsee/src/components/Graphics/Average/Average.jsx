@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, Tooltip } from 'recharts';
 import styles from './Average.module.scss';
 
 export function Average({ userAverage }) {
@@ -16,16 +16,14 @@ export function Average({ userAverage }) {
 
   return (
     <LineChart width={400} height={400} data={userAverage}>
+      {/* Text à mettre dans une div, impossible de changer la couleur */}
+      <text className={styles.text} x={20} y={30}>
+        Durée moyenne des sessions
+      </text>
       <Line type="monotone" dataKey="sessionLength" stroke="#fff" />
       <XAxis dataKey="day" stroke="#fff" />
 
       <Tooltip content={<CustomTooltip />} />
-      <Legend
-        verticalAlign="top"
-        align="left"
-        width={200}
-        content={<div>Durée moyenne des sessions</div>}
-      />
     </LineChart>
   );
 }

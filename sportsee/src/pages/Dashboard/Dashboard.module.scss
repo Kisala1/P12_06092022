@@ -1,15 +1,26 @@
+@use '../../styles/theme';
+
 .container {
   margin: 90px;
-
+  .span {
+    font-size: 3em;
+    font-weight: bold;
+    .strong {
+      color: theme.$third-color;
+    }
+  }
+  .containerActivity {
+    background-color: theme.$bg-graphs1-4-color;
+  }
   .containerAverage {
-    background-color: #ff0000;
+    background-color: theme.$bg-graph2-color;
     .average {
       z-index: 1;
     }
   }
 
   .containerScore {
-    background-color: #282d30;
+    background-color: theme.$bg-graph3-color;
     .score {
       z-index: 1;
     }
