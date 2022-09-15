@@ -1,15 +1,61 @@
 @use '../../styles/theme';
 
-.divContainer {
+.divContainerNav1 {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
   background-color: theme.$bg-primary-color;
-  .divImg {
+  .divImgNav1 {
     width: 15%;
     .img {
-        width: 100%;
+      width: 100%;
     }
+  }
+}
+
+.divContainerNav2 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 42vw;
+  background-color: theme.$bg-primary-color;
+
+  .divImgNav2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+    background-color: theme.$bg-secondary-color;
+    .img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .divIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+    background-color: theme.$bg-secondary-color;
+    margin-bottom: 20px;
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .span {
+    writing-mode: vertical-rl;
+    transform: scale(-1);
+    color: theme.$secondary-color;
   }
 }

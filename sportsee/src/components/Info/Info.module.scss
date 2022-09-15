@@ -1,0 +1,43 @@
+@use '../../styles/theme';
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 258px;
+  height: 124px;
+  margin: 30px 30px 65px 30px;
+  border-radius: 10px;
+  background-color: theme.$bg-third-color;
+
+  .containerIcon {
+    padding: 20px;
+    margin: 0 30px;
+    border-radius: 5px;
+    .iconCalorie {
+      color: theme.$iconCalorie-color;
+    }
+    .iconProteine {
+      color: theme.$iconProteine-color;
+    }
+    .iconGlucide {
+      color: theme.$iconGlucide-color;
+    }
+    .iconLipide {
+      color: theme.$iconLipide-color;
+    }
+  }
+
+  .containerInfos {
+    display: flex;
+    flex-direction: column;
+    .strong {
+      font-size: 1.3em;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .p {
+      margin: 0;
+      color: theme.$userInfos-color;
+    }
+  }
+}

@@ -1,28 +1,56 @@
 @use '../../styles/theme';
 
 .container {
-  margin: 90px;
-  .span {
-    font-size: 3em;
-    font-weight: bold;
-    .strong {
-      color: theme.$third-color;
+  margin: 90px 90px 0 250px;
+  .containerAllGraphs {
+    position: relative;
+    .span {
+      font-size: 3em;
+      font-weight: bold;
+      .strong {
+        color: theme.$third-color;
+      }
     }
-  }
-  .containerActivity {
-    background-color: theme.$bg-graphs1-4-color;
-  }
-  .containerAverage {
-    background-color: theme.$bg-graph2-color;
-    .average {
-      z-index: 1;
+    .containerActivity {
+      width: 1100px;
+      margin-top: 80px;
+      border-radius: 10px;
+      background-color: theme.$bg-third-color;
     }
-  }
+    .containerGraphs {
+      display: flex;
+      width: 1100px;
+      margin-top: 30px;
+      gap: 30px;
 
-  .containerScore {
-    background-color: theme.$bg-graph3-color;
-    .score {
-      z-index: 1;
+      .containerAverage {
+        border-radius: 10px;
+        background-color: theme.$bg-graph2-color;
+        height: 263px;
+        .average {
+          z-index: 1;
+        }
+      }
+
+      .containerIntensity {
+        border-radius: 10px;
+        background-color: theme.$bg-graph3-color;
+        height: 263px;
+        .intensity {
+          z-index: 1;
+        }
+      }
+      .containerScore {
+        border-radius: 10px;
+        background-color: theme.$bg-third-color;
+        height: 263px;
+      }
     }
   }
+}
+
+.containerInfos {
+  position: absolute;
+  top: 375px;
+  right: 12%;
 }

@@ -15,7 +15,7 @@ export function Average({ userAverage }) {
   }
 
   return (
-    <LineChart width={400} height={400} data={userAverage}>
+    <LineChart width={258} height={263} data={userAverage}>
       {/* Text à mettre dans une div, impossible de changer la couleur */}
       <text className={styles.text} x={20} y={30}>
         Durée moyenne des sessions

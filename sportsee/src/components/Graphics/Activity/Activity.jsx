@@ -31,7 +31,7 @@ export function Activity({ userActivity }) {
   }
   return (
     <BarChart
-      width={1500}
+      width={1100}
       height={400}
       data={userActivity}
       margin={{
@@ -40,17 +40,30 @@ export function Activity({ userActivity }) {
         left: 20,
         bottom: 5,
       }}
-    >
-      <CartesianGrid vertical={false} />
+      >
+      <CartesianGrid vertical={false} strokeDasharray="3 3" />
       <text x={50} y={50}>
         Activité quotidienne
       </text>
-      <XAxis dataKey="day" />
+      <XAxis
+        tickLine={false}
+        // ticks={['L', 'M', 'M', 'J', 'V', 'S', 'D']}
+      />
       <YAxis orientation="right" />
       <Tooltip offset={20} content={<CustomTooltip />} />
       <Legend content={CustomLegend} verticalAlign="top" />
-      <Bar dataKey="kilogram" fill="#282D30" barSize={10} />
-      <Bar dataKey="calories" fill="#E60000" barSize={10} />
+      <Bar
+        dataKey="kilogram"
+        fill="#282D30"
+        barSize={10}
+        radius={[10, 10, 0, 0]}
+      />
+      <Bar
+        dataKey="calories"
+        fill="#E60000"
+        barSize={10}
+        radius={[10, 10, 0, 0]}
+      />
     </BarChart>
   );
 }

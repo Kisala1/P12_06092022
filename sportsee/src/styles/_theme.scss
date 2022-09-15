@@ -1,14 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+/* Font */
+
 $font-primary: 'Roboto', 'sans-sérif';
+
+/* Font color */
+
 $primary-color: #000;
 $secondary-color: #fff;
-$third-color: #FF0101;
-$legend-color: #74798C;
+$third-color: #ff0101;
+$legend-color: #74798c;
+$userInfos-color: #74798C;
+$iconCalorie-color: #ff0000;
+$iconProteine-color: #4AB8FF;
+$iconGlucide-color: #FDCC0C;
+$iconLipide-color: #FD5181;
+
+/* Bg color */
+
 $bg-primary-color: #000;
 $bg-secondary-color: #fff;
-$bg-graphs1-4-color: #FBFBFB;
-$bg-graph2-color: #FF0000;
+$bg-third-color: #fbfbfb;
+$bg-graph2-color: #ff0000;
 $bg-graph3-color: #282d30;
-$bg-tooltip-color: #E60000;
-
+$bg-tooltip-color: #e60000;
