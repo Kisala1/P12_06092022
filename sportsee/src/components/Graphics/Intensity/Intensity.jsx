@@ -1,6 +1,6 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 
-export function Intensity({ categories, userPerfomance }) {
+export function Intensity({ userPerfomance }) {
   // const matchCategory = () => {
   //   if (userPerfomance.kind.find((el) => el === categories.kind)) {
   //     console.log('yes');

@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard/Dashboard';
-import users from './data/users.json';
-import usersActivity from './data/usersActivity.json';
-import usersAverage from './data/usersAverage.json';
-import usersPerformance from './data/usersPerformance.json';
 import './styles/index.scss';
 import reportWebVitals from './reportWebVitals';
 
@@ -14,17 +10,8 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Dashboard
-              users={users}
-              usersActivity={usersActivity}
-              usersAverage={usersAverage}
-              usersPerformance={usersPerformance}
-            />
-          }
-        />
+        {/* imposible de mettre /:id au path message d'erreur qui réclame juste "/" */}
+        <Route path="/" element={<Dashboard />} />
       </Routes>
     </Router>
   </React.StrictMode>

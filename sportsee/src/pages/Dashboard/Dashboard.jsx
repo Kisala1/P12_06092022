@@ -1,3 +1,8 @@
+import { UserModel } from '../../dataModels/userModel';
+import users from '../../data/users.json'
+import usersActivity from '../../data/usersActivity.json';
+import usersAverage from '../../data/usersAverage.json';
+import usersPerformance from '../../data/usersPerformance.json';
 import { MainLayout } from '../../components/MainLayout/MainLayout';
 import { Activity } from '../../components/Graphics/Activity/Activity';
 import { Average } from '../../components/Graphics/Average/Average';
@@ -6,20 +11,16 @@ import { Score } from '../../components/Graphics/Score/Score';
 import { Info } from '../../components/Info/Info';
 import styles from './Dashboard.module.scss';
 
-export function Dashboard({
-  users,
-  usersActivity,
-  usersAverage,
-  usersPerformance,
-}) {
-  const user = users.USER_MAIN_DATA.find((user) => user.id === 12);
-  const activity = usersActivity.USER_ACTIVITY.find((el) => el.userId === 12);
-  const average = usersAverage.USER_AVERAGE_SESSIONS.find(
-    (el) => el.userId === 12
+export function Dashboard() {
+  // récupère id url
+  // find dans users
+ const user = new UserModel(
+    users.USER_MAIN_DATA[0],
+    usersActivity.USER_ACTIVITY,
+    usersAverage.USER_AVERAGE_SESSIONS,
+    usersPerformance.USER_PERFORMANCE
   );
-  const performance = usersPerformance.USER_PERFORMANCE.find(
-    (el) => el.userId === 12
-  );
+  // condition si session undefined ou null renvoie une page d'erreur
   return (
     <MainLayout>
       <div className={styles.container}>
@@ -34,36 +35,28 @@ export function Dashboard({
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
           <div className={styles.containerActivity}>
-            {user.id === 12 ? (
-              <Activity userActivity={activity.sessions} />
-            ) : null}
+            <Activity userActivity={user.sessions} />
           </div>
           <div className={styles.containerGraphs}>
             <div className={styles.containerAverage}>
-              {user.id === 12 ? (
-                <Average
-                  className={styles.average}
-                  userAverage={average.sessions}
-                />
-              ) : null}
+              <Average
+                className={styles.average}
+                userAverage={user.averageSessions}
+              />
             </div>
             <div className={styles.containerIntensity}>
-              {user.id === 12 ? (
-                <Intensity
-                  className={styles.intensity}
-                  categories={performance.kind}
-                  userPerfomance={performance.data}
-                />
-              ) : null}
+              <Intensity
+                className={styles.intensity}
+                categories={user.performance.kind}
+                userPerfomance={user.performance.data}
+              />
             </div>
             <div className={styles.containerScore}>
-              {user.id === 12 ? (
-                <Score className={styles.score} user={user} />
-              ) : null}
+              <Score className={styles.score} user={user} />
             </div>
           </div>
         </div>
-        <div className={styles.containerInfos} >
+        <div className={styles.containerInfos}>
           <Info calorie={user.keyData.calorieCount} />
           <Info proteine={user.keyData.proteinCount} />
           <Info glucide={user.keyData.carbohydrateCount} />
