@@ -8,6 +8,8 @@ import {
 import styles from './Info.module.scss';
 
 export function Info({ calorie, proteine, glucide, lipide }) {
+  const internationalNumberFormat = new Intl.NumberFormat('en-US');
+
   const displayInfo = () => {
     if (calorie) {
       return (
@@ -19,7 +21,9 @@ export function Info({ calorie, proteine, glucide, lipide }) {
             <FontAwesomeIcon icon={faFire} className={styles.iconCalorie} />
           </div>
           <div className={styles.containerInfos}>
-            <strong className={styles.strong}>{`${calorie}kCal`}</strong>
+            <strong
+              className={styles.strong}
+            >{`${internationalNumberFormat.format(calorie)}kCal`}</strong>
             <p className={styles.p}>Calories</p>
           </div>
         </div>

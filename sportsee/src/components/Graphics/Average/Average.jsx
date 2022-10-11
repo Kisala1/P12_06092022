@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, Tooltip } from 'recharts';
 import styles from './Average.module.scss';
+import PropTypes from 'prop-types';
 
 export function Average({ userAverage }) {
   function CustomTooltip({ payload, active }) {
@@ -20,10 +21,14 @@ export function Average({ userAverage }) {
       <text className={styles.text} x={20} y={30}>
         Durée moyenne des sessions
       </text>
-      <Line type="monotone" dataKey="sessionLength" stroke="#fff" />
+      <Line type="monotone" dataKey="sessionLength" stroke="#fff" dot={false} />
       <XAxis dataKey="day" stroke="#fff" />
 
-      <Tooltip content={<CustomTooltip />} />
+      <Tooltip content={<CustomTooltip />} cursor={false}  />
     </LineChart>
   );
+}
+
+Average.propTypes = {
+  userAverage: PropTypes.array
 }

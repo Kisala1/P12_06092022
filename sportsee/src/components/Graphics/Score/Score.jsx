@@ -1,4 +1,7 @@
 import { RadialBarChart, RadialBar, Legend } from 'recharts';
+import styles from './Score.module.scss';
+import PropTypes from 'prop-types';
+
 
 // https://stackoverflow.com/questions/67016033/can-i-make-a-radial-bar-chart-like-this-in-rechart
 
@@ -17,9 +20,11 @@ const renderLegend = (props) => {
   const {payload} = props
 
   return (
-    <p>
-      <strong>{`${payload[1].payload.score}% `}</strong>
-      de votre objectif
+    <p className={styles.p}>
+      <strong
+        className={styles.strong}
+      >{`${payload[1].payload.score}% `}</strong>
+      de votre <br /> objectif
     </p>
   );
 }
@@ -29,15 +34,15 @@ const renderLegend = (props) => {
         innerRadius={50}
         cx={150}
         cy={150}
-        width={400}
-        height={400}
+        width={258}
+        height={263}
         barSize={10}
         data={data}
       >
-        <text x={30} y={40} >
+        <text x={30} y={40}>
           Score
         </text>
-        <Legend align="right" verticalAlign="middle" content={renderLegend} />
+        <Legend width={250} content={renderLegend} />
         <RadialBar
           minAngle={15}
           cornerRadius={30}
@@ -49,3 +54,7 @@ const renderLegend = (props) => {
     </>
   );
 }
+
+Score.propTypes = {
+  user: PropTypes.object,
+};

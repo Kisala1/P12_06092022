@@ -5,9 +5,10 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
+  Legend
 } from 'recharts';
 import styles from './Activity.module.scss';
+import PropTypes from 'prop-types';
 
 export function Activity({ userActivity }) {
   function CustomTooltip({ payload, active }) {
@@ -24,7 +25,7 @@ export function Activity({ userActivity }) {
   function CustomLegend() {
     return (
       <ul className={styles.ul}>
-        <li className={styles.liBlack}>Poids (g)</li>
+        <li className={styles.liBlack}>Poids (kg)</li>
         <li className={styles.liRed}>Calories brûlées (Kcal)</li>
       </ul>
     );
@@ -32,24 +33,28 @@ export function Activity({ userActivity }) {
   return (
     <BarChart
       width={1100}
-      height={400}
+      height={300}
       data={userActivity}
       margin={{
         top: 5,
         right: 30,
         left: 20,
-        bottom: 5,
+        bottom: 10,
       }}
-      >
+    >
       <CartesianGrid vertical={false} strokeDasharray="3 3" />
       <text x={50} y={50}>
         Activité quotidienne
       </text>
-      <XAxis
+
+      <XAxis tickMargin={20} tickLine={false} />
+      <YAxis
+        orientation="right"
+        tickMargin={20}
+        axisLine={false}
         tickLine={false}
-        // ticks={['L', 'M', 'M', 'J', 'V', 'S', 'D']}
+        tickCount={3}
       />
-      <YAxis orientation="right" />
       <Tooltip offset={20} content={<CustomTooltip />} />
       <Legend content={CustomLegend} verticalAlign="top" />
       <Bar
@@ -67,3 +72,7 @@ export function Activity({ userActivity }) {
     </BarChart>
   );
 }
+
+Activity.propTypes = {
+  userActivity: PropTypes.array,
+};

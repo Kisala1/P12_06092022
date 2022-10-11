@@ -15,6 +15,7 @@
       width: 1100px;
       margin-top: 80px;
       border-radius: 10px;
+      padding-bottom: 20px;
       background-color: theme.$bg-third-color;
     }
     .containerGraphs {
@@ -41,6 +42,7 @@
         }
       }
       .containerScore {
+        position: relative;
         border-radius: 10px;
         background-color: theme.$bg-third-color;
         height: 263px;
