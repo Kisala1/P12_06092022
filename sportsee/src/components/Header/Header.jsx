@@ -10,6 +10,11 @@ import {
 import icon from '../../assets/icon.png';
 import styles from './Header.module.scss';
 
+/**
+ * 
+ * @returns Header element
+ */
+
 export function Header() {
   const contentBtns = ['Accueil', 'Profil', 'Réglage', 'Communauté'];
 

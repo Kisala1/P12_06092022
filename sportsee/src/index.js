@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard/Dashboard';
+import { Error } from './components/Error/Error';
 import './styles/index.scss';
 import reportWebVitals from './reportWebVitals';
 
@@ -10,8 +11,8 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        {/* imposible de mettre /:id au path message d'erreur qui réclame juste "/" */}
-        <Route path="/" element={<Dashboard />} />
+        <Route exact path="/user/:id" element={<Dashboard />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </Router>
   </React.StrictMode>

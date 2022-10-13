@@ -5,6 +5,13 @@ import PropTypes from 'prop-types';
 
 // https://stackoverflow.com/questions/67016033/can-i-make-a-radial-bar-chart-like-this-in-rechart
 
+/**
+ * 
+ * @param {object} user is a object with user information : 
+ * todayScore ou score
+ * @returns a graph containing the above informations 
+ */
+
 export function Score({ user }) {
   const data = [
     {

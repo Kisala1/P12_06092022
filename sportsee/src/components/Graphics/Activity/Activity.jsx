@@ -10,13 +10,21 @@ import {
 import styles from './Activity.module.scss';
 import PropTypes from 'prop-types';
 
+/**
+ * 
+ * @param {array} userActivity is a array with sessions informations : 
+ * day, kilogram and calories 
+ * @returns a graph containing the above informations 
+ */
+
+
 export function Activity({ userActivity }) {
   function CustomTooltip({ payload, active }) {
     if (active) {
       return (
         <div className={styles.divTooltip}>
           <p className={styles.p}>{`${payload[0].value}g`}</p>
-          <p className={styles.p}>{` ${payload[1].value}Kcal`}</p>
+          <p className={styles.p}>{` ${payload[1].value}kCal`}</p>
         </div>
       );
     }

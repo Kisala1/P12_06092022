@@ -1,48 +1,35 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
+import PropTypes from 'prop-types';
+
 
 export function Intensity({ userPerfomance }) {
-  // const matchCategory = () => {
-  //   if (userPerfomance.kind.find((el) => el === categories.kind)) {
-  //     console.log('yes');
-  //   }
-  // };
-  // matchCategory()
 
-  // const qsd = () => {
-  //   for (const [key, value] of Object.entries(userPerfomance)) {
-      // console.log(key);
-      // console.log(value.value);
-  //   }
-  // };
+const getCategories = 
+(category) => {
+  switch (category) {
+    case 1:
+      return 'Intensité';
+    case 2:
+      return 'Vitesse';
+    case 3:
+      return 'Force';
+    case 4:
+      return 'Endurance';
+    case 5:
+      return 'Energie';
+    case 6:
+      return 'Cardio';
 
-  // qsd();
+    default:
+  }  
+};
 
-  const data = [
-    {
-      value: 80,
-      kind: 'cardio',
-    },
-    {
-      value: 120,
-      kind: 'energy',
-    },
-    {
-      value: 140,
-      kind: 'endurance',
-    },
-    {
-      value: 50,
-      kind: 'strength',
-    },
-    {
-      value: 200,
-      kind: 'speed',
-    },
-    {
-      value: 90,
-      kind: 'intensity',
-    },
-  ];
+const datas =  userPerfomance.map(entry => {
+  return  {
+    value: entry.value, 
+    kind: getCategories(entry.kind)
+  	}
+  })
 
   return (
     <>
@@ -51,11 +38,12 @@ export function Intensity({ userPerfomance }) {
         height={263}
         cx="50%"
         cy="50%"
-        outerRadius="50%"
-        data={data}
+        outerRadius="70%"
+        data={datas}
       >
         <PolarGrid />
-        <PolarAngleAxis dataKey="kind" stroke="#fff" />
+
+        <PolarAngleAxis dataKey="kind" stroke="#fff" tickLine={false} />
         <Radar
           dataKey="value"
           stroke="#FF0101"
@@ -66,3 +54,7 @@ export function Intensity({ userPerfomance }) {
     </>
   );
 }
+
+Intensity.propTypes = {
+  userPerfomance: PropTypes.array,
+};

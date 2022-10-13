@@ -7,6 +7,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './Info.module.scss';
 
+/**
+ * 
+ * @param {Number} All params are numbers
+ * @returns div each time there is one of the parameters, with its value
+ */
+
 export function Info({ calorie, proteine, glucide, lipide }) {
   const internationalNumberFormat = new Intl.NumberFormat('en-US');
 

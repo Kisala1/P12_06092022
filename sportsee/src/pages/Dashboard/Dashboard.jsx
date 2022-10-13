@@ -10,17 +10,23 @@ import { Intensity } from '../../components/Graphics/Intensity/Intensity';
 import { Score } from '../../components/Graphics/Score/Score';
 import { Info } from '../../components/Info/Info';
 import styles from './Dashboard.module.scss';
+import { Navigate, useParams } from 'react-router-dom';
 
 export function Dashboard() {
-  // récupère id url
-  // find dans users
- const user = new UserModel(
-    users.USER_MAIN_DATA[0],
+  const { id } = useParams();
+  const userData = users.USER_MAIN_DATA.find((elt) => elt.id === parseInt(id));
+
+  if (userData === undefined) {
+    return <Navigate to="/error" replace={true} />;
+  }
+
+  const user = new UserModel(
+    userData,
     usersActivity.USER_ACTIVITY,
     usersAverage.USER_AVERAGE_SESSIONS,
     usersPerformance.USER_PERFORMANCE
   );
-  // condition si session undefined ou null renvoie une page d'erreur
+
   return (
     <MainLayout>
       <div className={styles.container}>
@@ -47,7 +53,6 @@ export function Dashboard() {
             <div className={styles.containerIntensity}>
               <Intensity
                 className={styles.intensity}
-                categories={user.performance.kind}
                 userPerfomance={user.performance.data}
               />
             </div>

@@ -2,6 +2,14 @@ import { LineChart, Line, XAxis, Tooltip } from 'recharts';
 import styles from './Average.module.scss';
 import PropTypes from 'prop-types';
 
+
+/**
+ * 
+ * @param {array} userAverage is a array with sessions informations : 
+ * day and sessionLength
+ * @returns a graph containing the above informations 
+ */
+
 export function Average({ userAverage }) {
   function CustomTooltip({ payload, active }) {
     if (active) {
