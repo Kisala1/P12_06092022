@@ -55,26 +55,26 @@ export function Activity({ userActivity }) {
         Activité quotidienne
       </text>
 
-      <XAxis tickMargin={20} tickLine={false} />
+      <XAxis tickLine={false} tickMargin={20}  />
       <YAxis
         orientation="right"
-        tickMargin={20}
+        tickCount={3}
         axisLine={false}
         tickLine={false}
-        tickCount={3}
+        tickMargin={20}
       />
       <Tooltip offset={20} content={<CustomTooltip />} />
-      <Legend content={CustomLegend} verticalAlign="top" />
+      <Legend verticalAlign="top" content={CustomLegend}  />
       <Bar
         dataKey="kilogram"
-        fill="#282D30"
         barSize={10}
+        fill="#282D30"
         radius={[10, 10, 0, 0]}
       />
       <Bar
         dataKey="calories"
-        fill="#E60000"
         barSize={10}
+        fill="#E60000"
         radius={[10, 10, 0, 0]}
       />
     </BarChart>

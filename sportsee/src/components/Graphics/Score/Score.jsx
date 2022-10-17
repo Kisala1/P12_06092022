@@ -38,25 +38,26 @@ const renderLegend = (props) => {
   return (
     <>
       <RadialBarChart
-        innerRadius={50}
-        cx={150}
-        cy={150}
         width={258}
         height={263}
-        barSize={10}
         data={data}
+        cx={150}
+        cy={150}
+        startAngle={80}
+        endAngle={440}
+        innerRadius={50}
+        barSize={10}
       >
         <text x={30} y={40}>
           Score
         </text>
-        <Legend width={250} content={renderLegend} />
         <RadialBar
-          minAngle={15}
-          cornerRadius={30}
-          background
           fill="#fefefe"
+          background
+          cornerRadius={30}
           dataKey="score"
         />
+        <Legend width={250} content={renderLegend} />
       </RadialBarChart>
     </>
   );

@@ -38,11 +38,11 @@ const datas =  userPerfomance.map(entry => {
         height={263}
         cx="50%"
         cy="50%"
-        outerRadius="70%"
+        innerRadius={10}
+        outerRadius={85}
         data={datas}
       >
-        <PolarGrid />
-
+        <PolarGrid radialLines={false} />
         <PolarAngleAxis dataKey="kind" stroke="#fff" tickLine={false} />
         <Radar
           dataKey="value"
