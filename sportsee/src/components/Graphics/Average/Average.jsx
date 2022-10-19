@@ -1,19 +1,23 @@
-import { LineChart, Line, XAxis, Tooltip, Rectangle } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  Tooltip,
+  Rectangle,
+  ResponsiveContainer,
+} from 'recharts';
 import styles from './Average.module.scss';
 import PropTypes from 'prop-types';
 
-
 /**
- * 
- * @param {array} userAverage is a array with sessions informations : 
+ *
+ * @param {array} userAverage is a array with sessions informations :
  * day and sessionLength
- * @returns a graph containing the above informations 
+ * @returns a graph containing the above informations
  */
 
 export function Average({ userAverage }) {
-
-  const getDays = 
-  (day) => {
+  const getDays = (day) => {
     switch (day) {
       case 1:
         return 'L';
@@ -27,20 +31,19 @@ export function Average({ userAverage }) {
         return 'V';
       case 6:
         return 'S';
-        case 7:
+      case 7:
         return 'D';
-  
-      default:
-    }  
-  };
-  
-  const datas =  userAverage.map(entry => {
-    return  {
-      sessionLength: entry.sessionLength, 
-      day: getDays(entry.day)
-      }
-    })
 
+      default:
+    }
+  };
+
+  const datas = userAverage.map((entry) => {
+    return {
+      sessionLength: entry.sessionLength,
+      day: getDays(entry.day),
+    };
+  });
 
   function CustomTooltip({ payload, active }) {
     if (active) {
@@ -70,25 +73,36 @@ export function Average({ userAverage }) {
   };
 
   return (
-    <LineChart width={258} height={263} data={datas}>
-      {/* Text à mettre dans une div, impossible de changer la couleur */}
-      <text className={styles.text} x={20} y={30}>
-        Durée moyenne des sessions
-      </text>
-      <XAxis dataKey="day" stroke="#fff" />
-      <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
-      <Line
-        type="monotone"
-        dataKey="sessionLength"
-        dot={false}
-        activeDot={{ stroke: 'rgb(255,255,255, 0.3)', strokeWidth: 10, r: 5 }}
-        stroke="#fff"
-        strokeWidth={2}
-      />
-    </LineChart>
+    <ResponsiveContainer width="100%" height="100%">
+      <LineChart width={258} height={263} data={datas}>
+        <text x={30} y={30} fill="rgb(255,255,255, 0.5)">
+          Durée moyenne des
+        </text>
+        <text x={30} y={50} fill="rgb(255,255,255, 0.5)">
+          sessions
+        </text>
+        <XAxis
+          dataKey="day"
+          stroke="rgb(255,255,255, 0.5)"
+          axisLine={false}
+          tickLine={false}
+          tickMargin={-10}
+          padding={{ left: 15, right: 15 }}
+        />
+        <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
+        <Line
+          type="basis"
+          dataKey="sessionLength"
+          dot={false}
+          activeDot={{ stroke: 'rgb(255,255,255, 0.3)', strokeWidth: 10, r: 5 }}
+          stroke="#fff"
+          strokeWidth={2}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   );
 }
 
 Average.propTypes = {
-  userAverage: PropTypes.array
-}
+  userAverage: PropTypes.array,
+};
