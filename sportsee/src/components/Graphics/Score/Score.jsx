@@ -45,14 +45,14 @@ export function Score({ user }) {
         width={258}
         height={263}
         data={data}
-        cx={150}
-        cy={150}
+        cx="50%"
+        cy="50%"
         startAngle={80}
         endAngle={440}
         innerRadius={50}
         barSize={10}
       >
-        <text x={30} y={40}>
+        <text x={50} y={50}>
           Score
         </text>
         <RadialBar

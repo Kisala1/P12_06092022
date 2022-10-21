@@ -1,5 +1,5 @@
 import { UserModel } from '../../dataModels/userModel';
-import users from '../../data/users.json'
+import users from '../../data/users.json';
 import usersActivity from '../../data/usersActivity.json';
 import usersAverage from '../../data/usersAverage.json';
 import usersPerformance from '../../data/usersPerformance.json';
@@ -42,6 +42,12 @@ export function Dashboard() {
           </div>
           <div className={styles.containerActivity}>
             <Activity userActivity={user.sessions} />
+            <div className={styles.containerInfos}>
+              <Info calorie={user.keyData.calorieCount} />
+              <Info proteine={user.keyData.proteinCount} />
+              <Info glucide={user.keyData.carbohydrateCount} />
+              <Info lipide={user.keyData.lipidCount} />
+            </div>
           </div>
           <div className={styles.containerGraphs}>
             <div className={styles.containerAverage}>
@@ -60,12 +66,6 @@ export function Dashboard() {
               <Score className={styles.score} user={user} />
             </div>
           </div>
-        </div>
-        <div className={styles.containerInfos}>
-          <Info calorie={user.keyData.calorieCount} />
-          <Info proteine={user.keyData.proteinCount} />
-          <Info glucide={user.keyData.carbohydrateCount} />
-          <Info lipide={user.keyData.lipidCount} />
         </div>
       </div>
     </MainLayout>

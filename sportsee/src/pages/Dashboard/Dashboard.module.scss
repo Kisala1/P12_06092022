@@ -1,10 +1,9 @@
 @use '../../styles/theme';
 
 .container {
-  margin: 90px 90px 0 15vw;
+  margin: 90px 90px 0 13vw;
 
   .containerAllGraphs {
-    position: relative;
 
     .span {
       font-size: 3em;
@@ -16,17 +15,25 @@
     }
 
     .containerActivity {
-      width: 55vw;
+      position: relative;
+      width: 80%;
       height: 33vh;
       margin-top: 80px;
       border-radius: 10px;
       padding-bottom: 20px;
       background-color: theme.$bg-third-color;
+
+      .containerInfos {
+        position: absolute;
+        top: 0;
+        right: -350px;
+        height: 70vh;
+      }
     }
 
     .containerGraphs {
       display: flex;
-      width: 55vw;
+      width: 80%;
       height: 33vh;
       margin-top: 30px;
       gap: 30px;
@@ -62,10 +69,4 @@
       }
     }
   }
-}
-
-.containerInfos {
-  position: absolute;
-  top: 375px;
-  right: 12%;
 }
