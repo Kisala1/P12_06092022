@@ -5,3 +5,10 @@
   font-size: 1.5em;
   color: theme.$secondary-color;
 }
+
+@media screen and (max-width: 1440px) {
+  .span {
+    margin: 0 50px;
+    font-size: 1.3em;
+  }
+}

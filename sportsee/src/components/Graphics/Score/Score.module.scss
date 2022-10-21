@@ -1,12 +1,9 @@
 @use '../../../styles/theme';
 
 .p {
-    position: absolute;
-    top: -175px;
-    left: 165px;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
 
     color: theme.$legend-color;

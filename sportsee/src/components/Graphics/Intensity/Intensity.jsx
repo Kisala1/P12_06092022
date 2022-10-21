@@ -37,6 +37,9 @@ export function Intensity({ userPerfomance }) {
 
   /* https://stackoverflow.com/questions/65447592/recharts-is-there-a-way-to-add-a-padding-between-the-chart-and-labels-for-rada */
 
+  /* allows you to access the data used in the graph (payload) and return the data  */
+  /* the function is used to change the location of the kind around the radar */
+
   function renderPolarAngleAxis({ payload, x, y, cx, cy, ...rest }) {
     return (
       <Text
@@ -53,8 +56,6 @@ export function Intensity({ userPerfomance }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadarChart
-        width={258}
-        height={263}
         cx="50%"
         cy="50%"
         innerRadius={10}

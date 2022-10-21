@@ -45,6 +45,7 @@ export function Average({ userAverage }) {
     };
   });
 
+  /* allows you to access the data used in the graph (payload) and return the data  */
   function CustomTooltip({ payload, active }) {
     if (active) {
       return (
@@ -74,7 +75,7 @@ export function Average({ userAverage }) {
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart width={258} height={263} data={datas}>
+      <LineChart data={datas}>
         <text x={30} y={30} fill="rgb(255,255,255, 0.5)">
           Durée moyenne des
         </text>

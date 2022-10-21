@@ -12,9 +12,18 @@ import { Info } from '../../components/Info/Info';
 import styles from './Dashboard.module.scss';
 import { Navigate, useParams } from 'react-router-dom';
 
+/**
+ *
+ * @returns Dashboard element
+ */
+
 export function Dashboard() {
+  /* get the id from the url and see if it matches an id in the JSON doc */
+
   const { id } = useParams();
   const userData = users.USER_MAIN_DATA.find((elt) => elt.id === parseInt(id));
+
+  /* will display the error page when undefined */
 
   if (userData === undefined) {
     return <Navigate to="/error" replace={true} />;
@@ -30,41 +39,43 @@ export function Dashboard() {
   return (
     <MainLayout>
       <div className={styles.container}>
-        <div className={styles.containerAllGraphs}>
-          <div>
-            <span className={styles.span}>
-              Bonjour{' '}
-              <strong className={styles.strong}>
-                {user.userInfos.firstName}
-              </strong>
-            </span>
-            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-          </div>
-          <div className={styles.containerActivity}>
-            <Activity userActivity={user.sessions} />
-            <div className={styles.containerInfos}>
-              <Info calorie={user.keyData.calorieCount} />
-              <Info proteine={user.keyData.proteinCount} />
-              <Info glucide={user.keyData.carbohydrateCount} />
-              <Info lipide={user.keyData.lipidCount} />
-            </div>
-          </div>
+        <div>
+          <span className={styles.span}>
+            Bonjour{' '}
+            <strong className={styles.strong}>
+              {user.userInfos.firstName}
+            </strong>
+          </span>
+          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        </div>
+        <div className={styles.containerGraphsInfos}>
           <div className={styles.containerGraphs}>
-            <div className={styles.containerAverage}>
-              <Average
-                className={styles.average}
-                userAverage={user.averageSessions}
-              />
+            <div className={styles.containerActivity}>
+              <Activity userActivity={user.sessions} />
             </div>
-            <div className={styles.containerIntensity}>
-              <Intensity
-                className={styles.intensity}
-                userPerfomance={user.performance.data}
-              />
+            <div className={styles.containerGraphs}>
+              <div className={styles.containerAverage}>
+                <Average
+                  className={styles.average}
+                  userAverage={user.averageSessions}
+                />
+              </div>
+              <div className={styles.containerIntensity}>
+                <Intensity
+                  className={styles.intensity}
+                  userPerfomance={user.performance.data}
+                />
+              </div>
+              <div className={styles.containerScore}>
+                <Score className={styles.score} user={user} />
+              </div>
             </div>
-            <div className={styles.containerScore}>
-              <Score className={styles.score} user={user} />
-            </div>
+          </div>
+          <div className={styles.containerInfos}>
+            <Info calorie={user.keyData.calorieCount} />
+            <Info proteine={user.keyData.proteinCount} />
+            <Info glucide={user.keyData.carbohydrateCount} />
+            <Info lipide={user.keyData.lipidCount} />
           </div>
         </div>
       </div>

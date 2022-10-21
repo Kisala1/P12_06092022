@@ -19,6 +19,8 @@ import PropTypes from 'prop-types';
  */
 
 export function Activity({ userActivity }) {
+  /* allows you to access the data used in the graph (payload) and return the data  */
+
   function CustomTooltip({ payload, active }) {
     if (active) {
       return (

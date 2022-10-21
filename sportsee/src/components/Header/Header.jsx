@@ -24,14 +24,13 @@ export function Header() {
     <FontAwesomeIcon icon={faPersonBiking} className={styles.icon} />,
     <FontAwesomeIcon icon={faDumbbell} className={styles.icon} />,
   ];
-
   return (
     <>
       <div className={styles.divContainerNav1}>
         <div className={styles.divImgNav1}>
           <img className={styles.img} src={logo} alt="Logo SportSee" />
         </div>
-        <div>
+        <div className={styles.buttonsNav} >
           {contentBtns.map((content, index) => (
             <Nav content={content} key={index} />
           ))}

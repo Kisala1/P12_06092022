@@ -4,11 +4,20 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 20px;
   background-color: theme.$bg-primary-color;
+
+  .buttonsNav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 20px;
+  }
+
   .divImgNav1 {
+    min-width: 15%;
     width: 15%;
+
     .img {
       width: 100%;
     }
@@ -34,11 +43,13 @@
     height: 64px;
     border-radius: 5px;
     background-color: theme.$bg-secondary-color;
+
     .img {
       width: 32px;
       height: 32px;
     }
   }
+
   .divIcon {
     display: flex;
     justify-content: center;
@@ -48,14 +59,23 @@
     border-radius: 5px;
     background-color: theme.$bg-secondary-color;
     margin-bottom: 20px;
+
     .icon {
       width: 32px;
       height: 32px;
     }
   }
+
   .span {
     writing-mode: vertical-rl;
     transform: scale(-1);
     color: theme.$secondary-color;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .divContainerNav1 {
+    // justify-content: sp;s
+    padding: 10px;
   }
 }

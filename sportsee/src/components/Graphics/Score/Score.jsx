@@ -27,6 +27,9 @@ export function Score({ user }) {
       fill: '#FF0000',
     },
   ];
+
+  /* allows you to access the data used in the graph (payload) and return the data  */
+
   const renderLegend = (props) => {
     const { payload } = props;
 
@@ -42,8 +45,6 @@ export function Score({ user }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadialBarChart
-        width={258}
-        height={263}
         data={data}
         cx="50%"
         cy="50%"
@@ -61,7 +62,7 @@ export function Score({ user }) {
           cornerRadius={30}
           dataKey="score"
         />
-        <Legend width={250} content={renderLegend} />
+        <Legend content={renderLegend} verticalAlign="middle" align="center" />
       </RadialBarChart>
     </ResponsiveContainer>
   );

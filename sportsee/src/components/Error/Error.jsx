@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import { MainLayout } from '../../components/MainLayout/MainLayout';
 import styles from './Error.module.scss'
 
+/**
+ * 
+ * @returns Error element 
+ */
+
 export function Error () {
     return (
       <>
