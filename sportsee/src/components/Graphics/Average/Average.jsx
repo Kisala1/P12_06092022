@@ -59,7 +59,7 @@ export function Average({ userAverage }) {
   }
 
   const CustomCursor = (props) => {
-    const { points } = props;
+    const { points, width } = props;
     const { x, y } = points[0];
     const { x1, y1 } = points[1];
     return (
@@ -67,7 +67,7 @@ export function Average({ userAverage }) {
         fill="rgba(100, 0, 0, 0.2)"
         x={x}
         y={y1}
-        width={258}
+        width={width}
         height={263}
       />
     );
@@ -92,7 +92,7 @@ export function Average({ userAverage }) {
         />
         <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
         <Line
-          type="basis"
+          type="monotone"
           dataKey="sessionLength"
           dot={false}
           activeDot={{ stroke: 'rgb(255,255,255, 0.3)', strokeWidth: 10, r: 5 }}

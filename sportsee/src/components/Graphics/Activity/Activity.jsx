@@ -26,7 +26,7 @@ export function Activity({ userActivity }) {
       return (
         <div className={styles.divTooltip}>
           <p className={styles.p}>{`${payload[0].value}g`}</p>
-          <p className={styles.p}>{` ${payload[1].value}kCal`}</p>
+          <p className={styles.p}>{` ${payload[1].value}Kcal`}</p>
         </div>
       );
     }
@@ -36,7 +36,7 @@ export function Activity({ userActivity }) {
     return (
       <ul className={styles.ul}>
         <li className={styles.liBlack}>Poids (kg)</li>
-        <li className={styles.liRed}>Calories brûlées (Kcal)</li>
+        <li className={styles.liRed}>Calories brûlées (kCal)</li>
       </ul>
     );
   }

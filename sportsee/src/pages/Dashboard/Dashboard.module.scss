@@ -40,21 +40,21 @@
         margin-top: 30px;
         gap: 30px;
 
-        .containerAverage {
+        div:nth-child(1n+0) {
           flex-grow: 1;
           border-radius: 10px;
+        }
+
+        .containerAverage {
+          overflow: hidden;
           background-color: theme.$bg-graph2-color;
         }
 
         .containerIntensity {
-          flex-grow: 1;
-          border-radius: 10px;
           background-color: theme.$bg-graph3-color;
         }
 
         .containerScore {
-          flex-grow: 1;
-          border-radius: 10px;
           background-color: theme.$bg-third-color;
         }
       }
