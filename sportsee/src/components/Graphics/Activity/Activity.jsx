@@ -26,7 +26,7 @@ export function Activity({ userActivity }) {
       return (
         <div className={styles.divTooltip}>
           <p className={styles.p}>{`${payload[0].value}g`}</p>
-          <p className={styles.p}>{` ${payload[1].value}Kcal`}</p>
+          <p className={styles.p}>{`${payload[1].value}Kcal`}</p>
         </div>
       );
     }

@@ -1,22 +1,23 @@
 export class UserModel {
-  constructor(data, activity, average, performance) {
-    this.id = data.id;
-    this.userInfos = data.userInfos;
-    this.score = data.todayScore ?? data.score;
-    this.keyData = data.keyData;
-
-    this.sessions = this.getSessions(activity);
-    this.averageSessions = this.getAverage(average);
-    this.performance = this.getPerformance(performance);
+  constructor(data) {
+    this.id = data[0].id;
+    this.userInfos = data[0].userInfos;
+    this.score = data[0].todayScore ?? data[0].score;
+    this.keyData = data[0].keyData;
+    this.sessions =  data[1].sessions;
+    this.averageSessions = data[2].sessions;
+    this.performance = data[3];
   }
+/*
 
-  getSessions(activity) {
+  
     return activity.find((entry) => entry.userId === this.id).sessions;
-  }
-  getAverage(average) {
+
+
     return average.find((entry) => entry.userId === this.id).sessions;
-  }
-  getPerformance(performance) {
+
+
     return performance.find((entry) => entry.userId === this.id);
-  }
+*/
+
 }

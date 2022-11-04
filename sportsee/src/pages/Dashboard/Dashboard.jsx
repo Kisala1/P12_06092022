@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { UserModel } from '../../dataModels/userModel';
+import { api } from '../../service/api';
 import users from '../../data/users.json';
 import usersActivity from '../../data/usersActivity.json';
 import usersAverage from '../../data/usersAverage.json';
@@ -19,9 +21,22 @@ import { Navigate, useParams } from 'react-router-dom';
 
 export function Dashboard() {
   /* get the id from the url and see if it matches an id in the JSON doc */
-
+  const [userData, setUserData] = useState([]);
   const { id } = useParams();
-  const userData = users.USER_MAIN_DATA.find((elt) => elt.id === parseInt(id));
+  useEffect(() => {
+    const getDataFromAPI = async () => {
+      const data = await api(id);
+      setUserData(data);
+    };
+
+    if (process.env.REACT_APP_SOURCE !== 'API') {
+      setUserData([
+        users.USER_MAIN_DATA.find((entry) => entry.userId === parseInt(id)),
+      ]);
+    } else {
+      getDataFromAPI();
+    }
+  }, [id]);
 
   /* will display the error page when undefined */
 
@@ -29,14 +44,9 @@ export function Dashboard() {
     return <Navigate to="/error" replace={true} />;
   }
 
-  const user = new UserModel(
-    userData,
-    usersActivity.USER_ACTIVITY,
-    usersAverage.USER_AVERAGE_SESSIONS,
-    usersPerformance.USER_PERFORMANCE
-  );
+  const user = userData.length > 0 ? new UserModel(userData) : null;
 
-  return (
+  return userData.length > 0 ? (
     <MainLayout>
       <div className={styles.container}>
         <div>
@@ -80,5 +90,7 @@ export function Dashboard() {
         </div>
       </div>
     </MainLayout>
+  ) : (
+    /*<p>charge</p>*/ <p>chargement...</p>
   );
 }
