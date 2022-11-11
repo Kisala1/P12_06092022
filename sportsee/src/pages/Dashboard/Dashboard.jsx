@@ -29,9 +29,18 @@ export function Dashboard() {
       setUserData(data);
     };
 
-    if (process.env.REACT_APP_SOURCE !== 'API') {
+    if (process.env.REACT_APP_SOURCE === 'API') {
       setUserData([
-        users.USER_MAIN_DATA.find((entry) => entry.userId === parseInt(id)),
+        users.USER_MAIN_DATA.find((entry) => entry.id === parseInt(id)),
+        usersActivity.USER_ACTIVITY.find(
+          (entry) => entry.userId === parseInt(id)
+        ),
+        usersAverage.USER_AVERAGE_SESSIONS.find(
+          (entry) => entry.userId === parseInt(id)
+        ),
+        usersPerformance.USER_PERFORMANCE.find(
+          (entry) => entry.userId === parseInt(id)
+        ),
       ]);
     } else {
       getDataFromAPI();
@@ -39,7 +48,6 @@ export function Dashboard() {
   }, [id]);
 
   /* will display the error page when undefined */
-
   if (userData === undefined) {
     return <Navigate to="/error" replace={true} />;
   }
@@ -91,6 +99,6 @@ export function Dashboard() {
       </div>
     </MainLayout>
   ) : (
-    /*<p>charge</p>*/ <p>chargement...</p>
+    <p>chargement...</p>
   );
 }

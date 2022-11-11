@@ -4,20 +4,8 @@ export class UserModel {
     this.userInfos = data[0].userInfos;
     this.score = data[0].todayScore ?? data[0].score;
     this.keyData = data[0].keyData;
-    this.sessions =  data[1].sessions;
+    this.sessions = data[1].sessions;
     this.averageSessions = data[2].sessions;
     this.performance = data[3];
   }
-/*
-
-  
-    return activity.find((entry) => entry.userId === this.id).sessions;
-
-
-    return average.find((entry) => entry.userId === this.id).sessions;
-
-
-    return performance.find((entry) => entry.userId === this.id);
-*/
-
 }
