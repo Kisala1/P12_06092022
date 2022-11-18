@@ -84,5 +84,5 @@ export function Activity({ userActivity }) {
 }
 
 Activity.propTypes = {
-  userActivity: PropTypes.array,
+  userActivity: PropTypes.arrayOf(PropTypes.object),
 };

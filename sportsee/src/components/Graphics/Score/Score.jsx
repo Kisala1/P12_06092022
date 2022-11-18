@@ -69,5 +69,7 @@ export function Score({ user }) {
 }
 
 Score.propTypes = {
-  user: PropTypes.object,
+  user: PropTypes.shape({
+    score: PropTypes.number,
+  }),
 };

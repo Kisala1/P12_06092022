@@ -82,5 +82,5 @@ export function Intensity({ userPerfomance }) {
 }
 
 Intensity.propTypes = {
-  userPerfomance: PropTypes.array,
+  userPerfomance: PropTypes.arrayOf(PropTypes.object),
 };

@@ -6,9 +6,10 @@ import {
   faBurger,
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './Info.module.scss';
+import PropTypes from 'prop-types';
 
 /**
- * 
+ *
  * @param {Number} All params are numbers
  * @returns div each time there is one of the parameters, with its value
  */
@@ -89,3 +90,10 @@ export function Info({ calorie, proteine, glucide, lipide }) {
   };
   return <>{displayInfo()}</>;
 }
+
+Info.propTypes = {
+  calorie: PropTypes.number,
+  proteine: PropTypes.number,
+  glucide: PropTypes.number,
+  lipide: PropTypes.number,
+};

@@ -105,5 +105,5 @@ export function Average({ userAverage }) {
 }
 
 Average.propTypes = {
-  userAverage: PropTypes.array,
+  userAverage: PropTypes.arrayOf(PropTypes.object),
 };
