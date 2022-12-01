@@ -45,8 +45,8 @@ export function Intensity({ userPerfomance }) {
       <Text
         {...rest}
         verticalAnchor="middle"
-        y={y + (y - cy) / 10}
-        x={x + (x - cx) / 10}
+        y={y + (y - cy) / 20}
+        x={x + (x - cx) / 20}
       >
         {payload.value}
       </Text>

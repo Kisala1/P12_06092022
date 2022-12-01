@@ -29,7 +29,7 @@ export function Dashboard() {
       setUserData(data);
     };
 
-    if (process.env.REACT_APP_SOURCE === 'API') {
+    if (process.env.REACT_APP_SOURCE !== 'API') {
       setUserData([
         users.USER_MAIN_DATA.find((entry) => entry.id === parseInt(id)),
         usersActivity.USER_ACTIVITY.find(
@@ -66,12 +66,12 @@ export function Dashboard() {
           </span>
           <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         </div>
-        <div className={styles.containerGraphsInfos}>
-          <div className={styles.containerGraphs}>
+        <div className={styles.flexInfos}>
+          <div className={styles.containerAllGraphs}>
             <div className={styles.containerActivity}>
               <Activity userActivity={user.sessions} />
             </div>
-            <div className={styles.containerGraphs}>
+            <div className={styles.container3Graphs}>
               <div className={styles.containerAverage}>
                 <Average
                   className={styles.average}
